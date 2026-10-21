@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExerciseType index{% endblock %}
+
+{% block body %}
+    <h1>ExerciseType index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for exercise_type in exercise_types %}
+            <tr>
+                <td>{{ exercise_type.id }}</td>
+                <td>{{ exercise_type.name }}</td>
+                <td>
+                    <a href="{{ path('app_exercise_type_show', {'id': exercise_type.id}) }}" class="btn btn-sm btn-outlinesecondary">Szczegóły</a>
+                    <a href="{{ path('app_exercise_type_edit', {'id': exercise_type.id}) }}" class="btn btn-sm btn-outlineprimary">Edytuj</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_exercise_type_new') }}" class="btn btn-primary">Dodaj</a>
+{% endblock %}

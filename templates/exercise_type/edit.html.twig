@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ExerciseType{% endblock %}
+
+{% block body %}
+    <h1>Edit ExerciseType</h1>
+
+    {{ include('exercise_type/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_exercise_type_index') }}"" class="btn btn-link">Powrót do listy</a>
+
+    {{ include('exercise_type/_delete_form.html.twig') }}
+{% endblock %}
